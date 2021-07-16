@@ -3,7 +3,7 @@ import json
 import time
 
 # distance between cellphone and notebook
-distance = "1m"
+distance = "10m"
 
 # repeat this task for 100 times
 for x in range(0, 100):

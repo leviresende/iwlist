@@ -18,7 +18,7 @@ signal_level = []
 # iterating in all directories
 for dist in distance:
     # read the directory with the json files
-    for x in range (1, 5):
+    for x in range (1, 100):
 
         # oppening the files and save the information in a string
         with open("./reads/" + dist + "/read_" + str(x) + ".json", 'r') as f:
@@ -39,3 +39,6 @@ for dist in distance:
     with open(file, 'w') as f:
         for item in signal_level:
             f.write("%s\n" % item)
+    
+    # cleaning the array to be empty in the next iterarion of distance
+    signal_level = []
