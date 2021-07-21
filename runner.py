@@ -3,10 +3,10 @@ import json
 import time
 
 # distance between cellphone and notebook
-distance = "10m"
+distance = "30m"
 
 # repeat this task for 100 times
-for x in range(0, 100):
+for x in range(0, 180):
 
     # scanning networks
     content = iwlist.scan(interface="wlo1")
@@ -15,9 +15,9 @@ for x in range(0, 100):
     cells = iwlist.parse(content)
 
     # save each run in a different json file
-    file = "./reads/" + distance + "/read_" + str(x) + ".json"
+    file = "./reads2/" + distance + "/read_" + str(x) + ".json"
     with open(file, 'w') as json_file:
         json.dump(cells, json_file)
     
     print('Processing ...')
-    time.sleep(5)
+    time.sleep(1)

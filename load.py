@@ -10,7 +10,8 @@ parsed_json = (json.loads(data))
 # print(json.dumps(parsed_json, indent=4, sort_keys=True))
 
 # distance between cellphone and notebook
-distance = ["1m","2m","3m","4m","5m","6m","7m","8m","9m","10m"]
+distance = ["1m", "5m", "10m", "20m", "30m"]
+
 
 # array to receive the reads
 signal_level = []
@@ -21,20 +22,20 @@ for dist in distance:
     for x in range (1, 100):
 
         # oppening the files and save the information in a string
-        with open("./reads/" + dist + "/read_" + str(x) + ".json", 'r') as f:
+        with open("./reads2/" + dist + "/read_" + str(x) + ".json", 'r') as f:
             info = json.load(f)
 
         # iterating the to get the signal's strength
         for resp in info:
-            if (resp["essid"] == "AndroidAP"):
+            if (resp["essid"] == "PhoneArtifact11"):
                 # print (resp['signal_level_dBm'])
                 signal_level.append(resp['signal_level_dBm'])
 
         # priting information
-        print (signal_level)
+        # print (signal_level)
 
     # save information in a file to access later
-    file = "./results/" + dist + ".txt"
+    file = "./results2/" + dist + ".txt"
 
     with open(file, 'w') as f:
         for item in signal_level:
